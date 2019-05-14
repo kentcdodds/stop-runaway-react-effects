@@ -2,14 +2,16 @@
   "name": "stop-runaway-react-effects",
   "version": "0.0.0-semantically-released",
   "description": "Catches situations when a react use(Layout)Effect runs repeatedly in rapid succession",
-  "main": "dist/index.js",
+  "main": "dist/stop-runaway-react-effects.cjs.js",
+  "module": "dist/stop-runaway-react-effects.esm.js",
+  "browser": "dist/stop-runaway-react-effects.umd.js",
   "engines": {
     "node": ">=10",
     "npm": ">=6",
     "yarn": ">=1"
   },
   "scripts": {
-    "build": "kcd-scripts build",
+    "build": "kcd-scripts build --bundle",
     "lint": "kcd-scripts lint",
     "test": "kcd-scripts test",
     "test:update": "npm test -- --updateSnapshot --coverage",
@@ -22,11 +24,17 @@
   "keywords": [],
   "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
   "license": "MIT",
+  "peerDependencies": {
+    "react": ">=16.8.x"
+  },
   "dependencies": {
     "@babel/runtime": "^7.4.4"
   },
   "devDependencies": {
-    "kcd-scripts": "^1.4.0"
+    "kcd-scripts": "^1.4.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-testing-library": "^7.0.0"
   },
   "husky": {
     "hooks": {
@@ -34,7 +42,10 @@
     }
   },
   "eslintConfig": {
-    "extends": "./node_modules/kcd-scripts/eslint.js"
+    "extends": "./node_modules/kcd-scripts/eslint.js",
+    "rules": {
+      "no-console": "off"
+    }
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,47 @@
+{
+  "name": "stop-runaway-react-effects",
+  "version": "0.0.0-semantically-released",
+  "description": "Catches situations when a react use(Layout)Effect runs repeatedly in rapid succession",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=10",
+    "npm": ">=6",
+    "yarn": ">=1"
+  },
+  "scripts": {
+    "build": "kcd-scripts build",
+    "lint": "kcd-scripts lint",
+    "test": "kcd-scripts test",
+    "test:update": "npm test -- --updateSnapshot --coverage",
+    "validate": "kcd-scripts validate",
+    "setup": "npm install && npm run validate -s"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [],
+  "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/runtime": "^7.4.4"
+  },
+  "devDependencies": {
+    "kcd-scripts": "^1.4.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "kcd-scripts pre-commit"
+    }
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/kcd-scripts/eslint.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kentcdodds/stop-runaway-react-effects.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kentcdodds/stop-runaway-react-effects/issues"
+  },
+  "homepage": "https://github.com/kentcdodds/stop-runaway-react-effects#readme"
+}

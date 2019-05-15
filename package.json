@@ -19,7 +19,8 @@
     "setup": "npm install && npm run validate -s"
   },
   "files": [
-    "dist"
+    "dist",
+    "hijack"
   ],
   "keywords": [],
   "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",

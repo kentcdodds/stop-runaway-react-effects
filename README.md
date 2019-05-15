@@ -73,17 +73,31 @@ npm install --save stop-runaway-react-effects
 ## Usage
 
 ```javascript
+// src/bootstrap.js
 import {hijackEffects} from 'stop-runaway-react-effects'
 
 if (process.env.NODE_ENV !== 'production') {
   hijackEffects()
 }
-```
 
-> TIP: Make sure that you do this before you render any React components
+// src/index.js
+import './bootstrap'
+import React, {useEffect} from 'react'
+```
 
 If you're using a modern bundler (like webpack, parcel, or rollup) with modern
 production techniques, then that code will all get stripped away in production.
+
+If you'd like to avoid the extra file, an even easier way to do this is to use
+the `hijack` utility module:
+
+```javascript
+// src/index.js
+import 'stop-runaway-react-effect/hijack'
+//This is better because it will ensure that the effects are wrapped before you
+//import them (like if you're doing named imports):
+import React, {useEffect} from 'react'
+```
 
 ### API
 

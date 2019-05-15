@@ -75,7 +75,7 @@ npm install --save stop-runaway-react-effects
 ```javascript
 import {hijackEffects} from 'stop-runaway-react-effects'
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV !== 'production') {
   hijackEffects()
 }
 ```
@@ -100,7 +100,7 @@ You can also wrap one but not the other React effect hook:
 ```javascript
 import {hijackEffectHook} from 'stop-runaway-react-effects'
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV !== 'production') {
   hijackEffectHook('useLayoutEffect', {callCount: 60, timeLimit: 1000})
 }
 ```

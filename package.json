@@ -20,7 +20,7 @@
   },
   "files": [
     "dist",
-    "hijack"
+    "hijack.js"
   ],
   "keywords": [],
   "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",

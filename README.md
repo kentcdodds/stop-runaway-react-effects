@@ -32,6 +32,13 @@ effect callback is called repeatedly and that can cause lots of issues depending
 on what that effect callback does (for example, you could get rate-limited by an
 API you're hitting).
 
+> Yes, I'm aware that it's unfortunate that we have this problem at all with
+> React. No, I don't think that hooks are worse than classes because of this.
+> No, I'm afraid that this probably can't/shouldn't be built-into React because
+> sometimes your effect just runs a lot and that's intentional. But most of the
+> time it's not intentional so this tool is here to help you know when it's
+> happening so you can fix it.
+
 ## This solution
 
 This is a **development-time only** tool which will help you avoid running into
@@ -140,6 +147,8 @@ That code will produce this:
 
 ![no deps](https://raw.githubusercontent.com/kentcdodds/stop-runaway-react-effects/master/other/no-deps.png)
 
+[![Edit React Codesandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-codesandbox-jf2nk?fontsize=14)
+
 ---
 
 ```javascript
@@ -166,6 +175,8 @@ function RunawayChangingDeps() {
 That code will produce this:
 
 ![changing-deps](https://raw.githubusercontent.com/kentcdodds/stop-runaway-react-effects/master/other/changing-deps.png)
+
+[![Edit React Codesandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-codesandbox-xd8m9?fontsize=14)
 
 ## Inspiration
 

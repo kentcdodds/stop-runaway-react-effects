@@ -18,6 +18,18 @@
         "infra",
         "test"
       ]
+    },
+    {
+      "login": "foray1010",
+      "name": "Alex Young",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/3212221?v=4",
+      "profile": "https://github.com/foray1010",
+      "contributions": [
+        "doc"
+      ]
     }
-  ]
+  ],
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "contributorsPerLine": 7
 }

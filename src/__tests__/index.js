@@ -32,7 +32,7 @@ test('hijacks useEffect and useLayoutEffect when calling hijackEffects', () => {
   expect(React.useLayoutEffect).toEqual(originalUseLayoutEffect)
 })
 
-test('an effect which sets state but has no dependencies will warn', async () => {
+async function testComponent(ui) {
   jest.spyOn(console, 'warn').mockImplementation(() => {})
 
   React.useEffect = function tryCatchUseEffect(cb, deps) {
@@ -59,6 +59,24 @@ test('an effect which sets state but has no dependencies will warn', async () =>
 
   hijackEffects({callCount: 2})
 
+  let rendered = false
+
+  // it's super weird, but somehow the error is not try/catchable here, but
+  // it still fails the test. It's really odd. So we do some weird stuff to make
+  // sure we wait for it to be thrown.
+  await wait(
+    () => {
+      if (!rendered) {
+        rendered = true
+        render(ui)
+      }
+      expect(console.warn).toHaveBeenCalledTimes(1)
+    },
+    {timeout: 500},
+  )
+}
+
+test('an effect which sets state but has no dependencies will warn', async () => {
   function Test() {
     const forceUpdate = useForceUpdate()
     React.useEffect(() => {
@@ -67,64 +85,25 @@ test('an effect which sets state but has no dependencies will warn', async () =>
     return null
   }
 
-  let rendered = false
+  await testComponent(<Test />)
 
-  // it's super weird, but somehow the error is not try/catchable here, but
-  // it still fails the test. It's really odd. So we do some weird stuff to make
-  // sure we wait for it to be thrown.
-  await wait(
-    () => {
-      if (!rendered) {
-        rendered = true
-        render(<Test />)
-      }
-      expect(console.warn).toHaveBeenCalledTimes(1)
-    },
-    {timeout: 500},
-  )
   expect(console.warn.mock.calls[0]).toMatchInlineSnapshot(`
-            Array [
-              "The following effect callback was invoked 2 times in 1000ms",
-              "
-            ",
-              "() => {
-                  forceUpdate();
-                }",
-              "
-            ",
-              "This effect is not called with a dependencies argument and probably should. Start by adding \`[]\` as a second argument to the useEffect call, then add any other dependencies as elements to that array. You may also be interested in installing ESLint with https://npm.im/eslint-plugin-react-hooks",
-            ]
-      `)
+    Array [
+      "The following effect callback was invoked 2 times in 1000ms",
+      "
+    ",
+      "() => {
+          forceUpdate();
+        }",
+      "
+    ",
+      "This effect is not called with a dependencies argument and probably should. Start by adding \`[]\` as a second argument to the useEffect call, then add any other dependencies as elements to that array. You may also be interested in installing ESLint with https://npm.im/eslint-plugin-react-hooks",
+    ]
+`)
   console.warn.mockRestore()
 })
 
 test('an effect which sets state and has changing dependencies will warn', async () => {
-  jest.spyOn(console, 'warn').mockImplementation(() => {})
-
-  React.useEffect = function tryCatchUseEffect(cb, deps) {
-    return originalUseEffect(() => {
-      // stop the infinite loop if we've warned. The test is over now, but
-      // before we restore the useEffect back to where it should go, we need
-      // to prevent the infinite loop otherwise React will figure out what
-      // we're doing and be mad :-(
-      if (console.warn.mock.calls.length) {
-        return
-      }
-      try {
-        return cb()
-      } catch (e) {
-        if (e.message && e.message.includes('stop-runaway-react-effects')) {
-          // try/catch prevents test from failing. We assert on the warning
-        } else {
-          // something else is up
-          throw e
-        }
-      }
-    }, deps)
-  }
-
-  hijackEffects({callCount: 2})
-
   function Test() {
     const forceUpdate = useForceUpdate()
     React.useEffect(() => {
@@ -133,21 +112,8 @@ test('an effect which sets state and has changing dependencies will warn', async
     return null
   }
 
-  let rendered = false
+  await testComponent(<Test />)
 
-  // it's super weird, but somehow the error is not try/catchable here, but
-  // it still fails the test. It's really odd. So we do some weird stuff to make
-  // sure we wait for it to be thrown.
-  await wait(
-    () => {
-      if (!rendered) {
-        rendered = true
-        render(<Test />)
-      }
-      expect(console.warn).toHaveBeenCalledTimes(1)
-    },
-    {timeout: 500},
-  )
   expect(console.warn.mock.calls[0]).toMatchInlineSnapshot(`
     Array [
       "The following effect callback was invoked 2 times in 1000ms",

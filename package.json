@@ -4,7 +4,6 @@
   "description": "Catches situations when a react use(Layout)Effect runs repeatedly in rapid succession",
   "main": "dist/stop-runaway-react-effects.cjs.js",
   "module": "dist/stop-runaway-react-effects.esm.js",
-  "browser": "dist/stop-runaway-react-effects.umd.js",
   "typings": "typings/index.d.ts",
   "engines": {
     "node": ">=10",

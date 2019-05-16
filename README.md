@@ -100,7 +100,7 @@ the `hijack` utility module:
 
 ```javascript
 // src/index.js
-import 'stop-runaway-react-effect/hijack'
+import 'stop-runaway-react-effects/hijack'
 //This is better because it will ensure that the effects are wrapped before you
 //import them (like if you're doing named imports):
 import React, {useEffect} from 'react'

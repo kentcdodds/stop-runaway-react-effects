@@ -27,6 +27,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "davidosomething",
+      "name": "David O'Trakoun",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/609213?v=4",
+      "profile": "https://www.davidosomething.com/",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "repoType": "github",

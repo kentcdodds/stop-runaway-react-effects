@@ -1,0 +1,7 @@
+node_modules/
+coverage/
+dist/
+build/
+out/
+.next/
+typings/index.d.ts

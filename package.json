@@ -5,11 +5,6 @@
   "main": "dist/stop-runaway-react-effects.cjs.js",
   "module": "dist/stop-runaway-react-effects.esm.js",
   "typings": "typings/index.d.ts",
-  "engines": {
-    "node": ">=10",
-    "npm": ">=6",
-    "yarn": ">=1"
-  },
   "scripts": {
     "build": "kcd-scripts build --bundle",
     "lint": "kcd-scripts lint",

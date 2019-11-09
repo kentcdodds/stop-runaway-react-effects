@@ -19,7 +19,7 @@ succession</p>
 [![version][version-badge]][package] [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs] [![Code of Conduct][coc-badge]][coc]
 
 ## The problem
@@ -210,6 +210,7 @@ Thanks goes to these people ([emoji key][emojis]):
     <td align="center"><a href="https://github.com/foray1010"><img src="https://avatars3.githubusercontent.com/u/3212221?v=4" width="100px;" alt="Alex Young"/><br /><sub><b>Alex Young</b></sub></a><br /><a href="https://github.com/kentcdodds/stop-runaway-react-effects/commits?author=foray1010" title="Documentation">📖</a> <a href="https://github.com/kentcdodds/stop-runaway-react-effects/commits?author=foray1010" title="Code">💻</a></td>
     <td align="center"><a href="https://www.davidosomething.com/"><img src="https://avatars3.githubusercontent.com/u/609213?v=4" width="100px;" alt="David O'Trakoun"/><br /><sub><b>David O'Trakoun</b></sub></a><br /><a href="https://github.com/kentcdodds/stop-runaway-react-effects/commits?author=davidosomething" title="Documentation">📖</a></td>
     <td align="center"><a href="https://stackshare.io/jdorfman/decisions"><img src="https://avatars1.githubusercontent.com/u/398230?v=4" width="100px;" alt="Justin Dorfman"/><br /><sub><b>Justin Dorfman</b></sub></a><br /><a href="#fundingFinding-jdorfman" title="Funding Finding">🔍</a></td>
+    <td align="center"><a href="https://olliesports.com"><img src="https://avatars2.githubusercontent.com/u/2257337?v=4" width="100px;" alt="Scott Ashton"/><br /><sub><b>Scott Ashton</b></sub></a><br /><a href="https://github.com/kentcdodds/stop-runaway-react-effects/commits?author=scottmas" title="Code">💻</a></td>
   </tr>
 </table>
 

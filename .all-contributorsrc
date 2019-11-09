@@ -46,6 +46,15 @@
       "contributions": [
         "fundingFinding"
       ]
+    },
+    {
+      "login": "scottmas",
+      "name": "Scott Ashton",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/2257337?v=4",
+      "profile": "https://olliesports.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "repoType": "github",

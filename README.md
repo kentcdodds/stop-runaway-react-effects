@@ -83,7 +83,7 @@ npm install --save stop-runaway-react-effects
 // src/bootstrap.js
 import {hijackEffects} from 'stop-runaway-react-effects'
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'development') {
   hijackEffects()
 }
 
@@ -101,8 +101,8 @@ the `hijack` utility module:
 ```javascript
 // src/index.js
 import 'stop-runaway-react-effects/hijack'
-//This is better because it will ensure that the effects are wrapped before you
-//import them (like if you're doing named imports):
+// This is better because it will ensure that the effects are wrapped before you
+// import them (like if you're doing named imports):
 import React, {useEffect} from 'react'
 ```
 
@@ -121,7 +121,7 @@ You can also wrap one but not the other React effect hook:
 ```javascript
 import {hijackEffectHook} from 'stop-runaway-react-effects'
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'development') {
   hijackEffectHook('useLayoutEffect', {callCount: 60, timeLimit: 1000})
 }
 ```

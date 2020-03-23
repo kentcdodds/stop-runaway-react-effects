@@ -19,24 +19,19 @@
     "hijack.js"
   ],
   "keywords": [],
-  "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
+  "author": "Kent C. Dodds <me@kentcdodds.com> (https://kentcdodds.com/)",
   "license": "MIT",
   "peerDependencies": {
     "react": ">=16.8.x"
   },
   "dependencies": {
-    "@babel/runtime": "^7.4.4"
+    "@babel/runtime": "^7.9.2"
   },
   "devDependencies": {
-    "kcd-scripts": "^1.4.0",
+    "@testing-library/react": "^10.0.1",
+    "kcd-scripts": "^5.6.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-testing-library": "^7.0.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "kcd-scripts pre-commit"
-    }
+    "react-dom": "^16.13.1"
   },
   "eslintConfig": {
     "extends": "./node_modules/kcd-scripts/eslint.js",

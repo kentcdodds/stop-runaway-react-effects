@@ -1,5 +1,5 @@
 import React from 'react'
-import {render, wait} from 'react-testing-library'
+import {render, waitFor} from '@testing-library/react'
 import {hijackEffects} from '../'
 
 const originalUseEffect = React.useEffect
@@ -64,7 +64,7 @@ async function testComponent(ui) {
   // it's super weird, but somehow the error is not try/catchable here, but
   // it still fails the test. It's really odd. So we do some weird stuff to make
   // sure we wait for it to be thrown.
-  await wait(
+  await waitFor(
     () => {
       if (!rendered) {
         rendered = true

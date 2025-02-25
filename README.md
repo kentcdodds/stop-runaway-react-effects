@@ -18,9 +18,9 @@ succession</p>
 
 ## The problem
 
-React's [`useEffect`](https://reactjs.org/docs/hooks-reference.html#useeffect)
+React's [`useEffect`](https://react.dev/reference/react/useEffect)
 and
-[`useLayoutEffect`](https://reactjs.org/docs/hooks-reference.html#uselayouteffect)
+[`useLayoutEffect`](https://react.dev/reference/react/useLayoutEffect)
 hooks accept a "dependencies array" argument which indicates to React that you
 want the callback to be called when those values change between renders. This
 prevents a LOT of bugs, but it presents a new problem.
